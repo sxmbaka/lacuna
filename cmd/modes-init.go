@@ -5,14 +5,14 @@ import "github.com/sxmbaka/lacuna/mode"
 var (
 	ml = mode.MoreLike{
 		Active: false,
-		Arg:    "test",
+		Arg:    "",
 	}
 	sl = mode.SoundsLike{
-		Active: true,
-		Arg:    "silence",
+		Active: false,
+		Arg:    "",
 	}
 	sp = mode.SpelledLike{
-		Active: true,
-		Arg:    "cry",
+		Active: false,
+		Arg:    "",
 	}
 )
