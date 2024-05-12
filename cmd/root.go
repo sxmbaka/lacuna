@@ -8,7 +8,7 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "lacuna",
+	Use:   "lacuna [flags]",
 	Short: "@todo: short desc of root cmd",
 	Long:  "@todo: verbose dec of root cmd",
 	Run: func(cmd *cobra.Command, args []string) {
@@ -34,7 +34,8 @@ var rootCmd = &cobra.Command{
 		max, err := cmd.Flags().GetInt("max")
 		cobra.CheckErr(err)
 
-		web.GetData(&ml, &sl, &sp, max)
+		wordlist := web.GetData(&ml, &sl, &sp, max)
+		printFormat(wordlist)
 		fmt.Println("@todo: lacuna root")
 	},
 }

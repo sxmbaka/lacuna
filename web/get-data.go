@@ -2,7 +2,6 @@ package web
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -22,7 +21,7 @@ const (
 	baseURL = "https://api.datamuse.com/words"
 )
 
-func GetData(moreLikeActive *mode.MoreLike, soundsLikeActive *mode.SoundsLike, spelledLikeActive *mode.SpelledLike, max int) {
+func GetData(moreLikeActive *mode.MoreLike, soundsLikeActive *mode.SoundsLike, spelledLikeActive *mode.SpelledLike, max int) WordList {
 	url := frameRequest(moreLikeActive, soundsLikeActive, spelledLikeActive, max)
 	response, err := http.Get(url)
 	if err != nil {
@@ -45,9 +44,5 @@ func GetData(moreLikeActive *mode.MoreLike, soundsLikeActive *mode.SoundsLike, s
 		log.Fatalf("Error unmarshalling JSON: %v", err)
 	}
 
-	for _, word := range wordlist {
-		fmt.Printf("Word: %s\n", word.Word)
-		fmt.Printf("Score: %d\n", word.Score)
-		fmt.Printf("Tags: %#v\n", word.Tags)
-	}
+	return wordlist
 }
