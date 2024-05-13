@@ -7,7 +7,7 @@ import (
 	"github.com/sxmbaka/lacuna/mode"
 )
 
-func frameRequest(ml *mode.MoreLike, sl *mode.SoundsLike, sp *mode.SpelledLike, max int) string {
+func frameRequest(ml *mode.MoreLike, sl *mode.SoundsLike, sp *mode.SpelledLike, max int, show bool) string {
 	url := baseURL + "?"
 
 	if ml.Active {
@@ -27,6 +27,8 @@ func frameRequest(ml *mode.MoreLike, sl *mode.SoundsLike, sp *mode.SpelledLike, 
 		url += "&sp=" + handleSpaces(sp.Arg)
 	}
 	url += "&max=" + fmt.Sprint(max)
-	fmt.Println(url)
+	if show {
+		fmt.Println("Query URL:", url)
+	}
 	return url
 }

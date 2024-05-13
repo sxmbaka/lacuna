@@ -2,15 +2,17 @@ package cmd
 
 import (
 	"fmt"
+	"io"
 
+	"github.com/olekukonko/tablewriter"
 	"github.com/sxmbaka/lacuna/web"
 )
 
-func printFormat(wordlist []web.Word) {
+func printFormat(wordlist []web.Word, cmd io.Writer) {
+	table := tablewriter.NewWriter(cmd)
+	table.SetHeader([]string{"Index", "Word", "Score"})
 	for i, word := range wordlist {
-		fmt.Printf("%4d: %s\n", i+1, word.Word)
-		// fmt.Printf("Score: %d\n", word.Score)
-		// we don't need to print tags
-		// fmt.Printf("Tags: %#v\n", word.Tags)
+		table.Append([]string{fmt.Sprintf("%d", i+1), word.Word, fmt.Sprintf("%d", word.Score)})
 	}
+	table.Render()
 }

@@ -21,8 +21,8 @@ const (
 	baseURL = "https://api.datamuse.com/words"
 )
 
-func GetData(moreLikeActive *mode.MoreLike, soundsLikeActive *mode.SoundsLike, spelledLikeActive *mode.SpelledLike, max int) WordList {
-	url := frameRequest(moreLikeActive, soundsLikeActive, spelledLikeActive, max)
+func GetData(moreLikeActive *mode.MoreLike, soundsLikeActive *mode.SoundsLike, spelledLikeActive *mode.SpelledLike, max int, show bool) WordList {
+	url := frameRequest(moreLikeActive, soundsLikeActive, spelledLikeActive, max, show)
 	response, err := http.Get(url)
 	if err != nil {
 		log.Fatalf("Error fetching data: %v", err)
