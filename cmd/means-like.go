@@ -1,16 +1,14 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 	"github.com/sxmbaka/lacuna/web"
 )
 
-var morelikeCmd = &cobra.Command{
-	Use:   "ml [flags]",
+var meansLikeCmd = &cobra.Command{
+	Use:   "ml [word] [flags]...",
 	Short: "@todo: short desc of more-like cmd",
-	Long:  "@todo: verbose desc of more-like cmd",
+	Long:  "Means like\nConstraint: require that the results have a meaning related to this string value, which can be any word or sequence of words.\nThis is effectively the reverse dictionary feature of OneLook (https://www.onelook.com/reverse-dictionary.shtml).",
 	Run: func(cmd *cobra.Command, args []string) {
 		var err error
 		if len(args) < 1 {
@@ -27,15 +25,12 @@ var morelikeCmd = &cobra.Command{
 		cobra.CheckErr(err)
 
 		wordlist := web.GetData(&ml, &sl, &sp, max)
+		cmd.Println("More like:", ml.Arg)
 		printFormat(wordlist)
-		fmt.Println("@todo: lacuna more-like")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(morelikeCmd)
-	// rootCmd.PersistentFlags().Lookup("more-like").Hidden = true
-	// rootCmd.PersistentFlags().Lookup("sounds-like").Hidden = true
-	// rootCmd.PersistentFlags().Lookup("spelled-like").Hidden = true
-	morelikeCmd.Flags().IntP("max", "x", 5, "@todo: max flag desc")
+	rootCmd.AddCommand(meansLikeCmd)
+	meansLikeCmd.Flags().IntP("max", "x", 10, "@todo: max flag desc")
 }

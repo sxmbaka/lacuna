@@ -10,13 +10,13 @@ func frameRequest(ml *mode.MoreLike, sl *mode.SoundsLike, sp *mode.SpelledLike, 
 	url := baseURL + "?"
 
 	if ml.Active {
-		url += "&ml=" + ml.Arg
+		url += "&ml=" + handleSpaces(ml.Arg)
 	}
 	if sl.Active {
-		url += "&sl=" + sl.Arg
+		url += "&sl=" + handleSpaces(sl.Arg)
 	}
 	if sp.Active {
-		url += "&sp=" + sp.Arg
+		url += "&sp=" + handleSpaces(sp.Arg)
 	}
 	url += "&max=" + fmt.Sprint(max)
 	fmt.Println(url)

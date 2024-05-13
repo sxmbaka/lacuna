@@ -7,9 +7,10 @@ import (
 )
 
 func printFormat(wordlist []web.Word) {
-	for _, word := range wordlist {
-		fmt.Printf("Word: %s\n", word.Word)
-		fmt.Printf("Score: %d\n", word.Score)
-		fmt.Printf("Tags: %#v\n", word.Tags)
+	for i, word := range wordlist {
+		fmt.Printf("%4d: %s\n", i+1, word.Word)
+		// fmt.Printf("Score: %d\n", word.Score)
+		// we don't need to print tags
+		// fmt.Printf("Tags: %#v\n", word.Tags)
 	}
 }
