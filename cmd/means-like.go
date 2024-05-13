@@ -7,7 +7,7 @@ import (
 
 var meansLikeCmd = &cobra.Command{
 	Use:   "ml [word] [flags]...",
-	Short: "@todo: short desc of more-like cmd",
+	Short: "Find words that are more like the given word",
 	Long:  "Means like\nConstraint: require that the results have a meaning related to this string value, which can be any word or sequence of words.\nThis is effectively the reverse dictionary feature of OneLook (https://www.onelook.com/reverse-dictionary.shtml).",
 	Run: func(cmd *cobra.Command, args []string) {
 		var err error
