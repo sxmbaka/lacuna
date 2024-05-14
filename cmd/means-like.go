@@ -27,7 +27,7 @@ var meansLikeCmd = &cobra.Command{
 		cobra.CheckErr(err)
 
 		wordlist := web.GetData(&ml, &sl, &sp, max, show)
-		cmd.Println("More like:", ml.Arg)
+		cmd.Println("Means like:", ml.Arg)
 		printFormat(wordlist, cmd.OutOrStdout())
 	},
 }
