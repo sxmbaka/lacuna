@@ -11,7 +11,7 @@
 - **Spelled-Like**: Find words that are spelled similarly to a given word.
 
 ## Installation
-To use  behead , you need to have Go installed. You can install  behead  by cloning the repository and building the binary locally.
+To use  lacuna , you need to have Go installed. You can install  lacuna  by cloning the repository and building the binary locally.
 
 ### Prerequisites
 Make sure you have Go installed on your machine. You can download and install Go from the [official Go website](https://golang.org/dl/).
